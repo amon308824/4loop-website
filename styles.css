@@ -36,18 +36,31 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; border-r
 .identity {
   flex: 1;
   width: 100%;
-  padding: clamp(48px, 9svh, 120px) 24px max(70px, 12svh);
+  padding: clamp(32px, 6svh, 80px) 24px max(80px, 15svh);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
+.lockup { display: inline-flex; flex-direction: column; align-items: stretch; }
+/* The hill in front of the logo: the photo cut along the treetops (sharpened), with the same light gradient. */
+.landscape-front {
+  display: none;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgb(240 245 247 / .3) 0%, rgb(240 245 247 / .68) 50%, rgb(240 245 247 / .32) 69%, transparent 83%, rgb(9 27 20 / .55) 100%), url("assets/forest-front.webp") 50% 27% / cover no-repeat;
+  -webkit-mask: url("assets/forest-front.webp") 50% 27% / cover no-repeat;
+  mask: url("assets/forest-front.webp") 50% 27% / cover no-repeat;
+}
+.services, .landing-footer { position: relative; z-index: 2; }
 .identity-logo {
   display: block;
-  width: min(580px, 67vw, 60svh);
+  width: 0;
+  min-width: 100%;
   height: auto;
-  mix-blend-mode: multiply;
 }
 .services {
   margin: 32px 0 0;
@@ -55,8 +68,9 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; border-r
   line-height: 1.6;
   font-weight: 400;
   letter-spacing: .045em;
+  white-space: nowrap;
+  margin-right: -.045em;
 }
-.services span { display: inline-block; margin: 0 .65em; opacity: .6; }
 .landing-footer {
   padding: 16px 24px max(28px, env(safe-area-inset-bottom));
   color: white;
@@ -89,17 +103,23 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; border-r
 .legal-content h2 { margin: 32px 0 10px; font-size: 1.125rem; font-weight: 600; line-height: 1.4; }
 .legal-content p { margin: 0 0 16px; }
 .legal-footer { border-top: 1px solid #d8e0e2; padding: 16px 0 28px; }
+/* Wide screens: the photo scales with the width, so the logo is placed and sized in vw
+   and the hill on its right always covers the bottom right of the O (as on an iPhone lock screen). */
+@media (min-width: 1000px) and (orientation: landscape) {
+  .identity { justify-content: flex-start; padding: 0 24px; }
+  .services { font-size: 1.39vw; }
+  /* top of the logo = hill skyline (12.33vw + 27vh, photo y 870 of 1800) - logo height (16.33vw) + overlap */
+  .lockup { margin-top: calc(27vh - 4vw + var(--hill-overlap, 3.6vw)); }
+  .landscape-front { display: block; }
+}
 @media (max-width: 600px) {
   .landscape img { object-position: 50% 50%; }
   .landscape::after { background: linear-gradient(180deg, rgb(240 245 247 / .15), rgb(240 245 247 / .72) 37%, rgb(240 245 247 / .62) 57%, transparent 78%, rgb(9 27 20 / .65)); }
   .identity { padding: 48px 20px 22svh; }
-  .identity-logo { width: min(84vw, 460px, 66svh); }
-  .services { margin-top: 22px; letter-spacing: 0; font-size: 1rem; }
-  .services span { margin-inline: .35em; }
+  .services { margin-top: 22px; margin-right: 0; letter-spacing: 0; font-size: 1rem; }
 }
 @media (max-height: 540px) and (min-width: 601px) {
   .identity { padding: 24px 24px 20px; }
-  .identity-logo { width: 41svh; }
   .services { margin-top: 12px; }
   .landing-footer { padding-bottom: 10px; }
 }
