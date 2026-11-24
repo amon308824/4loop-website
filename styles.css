@@ -51,9 +51,15 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; border-r
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background: linear-gradient(180deg, rgb(240 245 247 / .3) 0%, rgb(240 245 247 / .68) 50%, rgb(240 245 247 / .32) 69%, transparent 83%, rgb(9 27 20 / .55) 100%), url("assets/forest-front.webp") 50% 27% / cover no-repeat;
-  -webkit-mask: url("assets/forest-front.webp") 50% 27% / cover no-repeat;
-  mask: url("assets/forest-front.webp") 50% 27% / cover no-repeat;
+  background: linear-gradient(180deg, rgb(240 245 247 / .3) 0%, rgb(240 245 247 / .68) 50%, rgb(240 245 247 / .32) 69%, transparent 83%, rgb(9 27 20 / .55) 100%), url("assets/forest-front.png") 50% 27% / cover no-repeat;
+  -webkit-mask-image: url("assets/forest-front.png");
+  -webkit-mask-size: cover;
+  -webkit-mask-position: 50% 27%;
+  -webkit-mask-repeat: no-repeat;
+  mask-image: url("assets/forest-front.png");
+  mask-size: cover;
+  mask-position: 50% 27%;
+  mask-repeat: no-repeat;
 }
 .services, .landing-footer { position: relative; z-index: 2; }
 .identity-logo {
@@ -136,7 +142,7 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; border-r
   .lockup { margin-top: calc(36.67svh - 10.73em + var(--hill-overlap-phone, .9em)); }
   .landscape-front {
     display: block;
-    background: linear-gradient(180deg, rgb(240 245 247 / .15), rgb(240 245 247 / .72) 37%, rgb(240 245 247 / .62) 57%, transparent 78%, rgb(9 27 20 / .65)), url("assets/forest-front.webp") 50% 50% / cover no-repeat;
+    background: linear-gradient(180deg, rgb(240 245 247 / .15), rgb(240 245 247 / .72) 37%, rgb(240 245 247 / .62) 57%, transparent 78%, rgb(9 27 20 / .65)), url("assets/forest-front.png") 50% 50% / cover no-repeat;
     -webkit-mask-position: 50% 50%;
     mask-position: 50% 50%;
   }
