@@ -1,2 +1,5 @@
+# Pages carry <meta name="robots" content="noindex">; crawlers must be able to read it.
+# Images are blocked so they never appear in image search.
 User-agent: *
-Disallow: /
+Disallow: /assets/
+Disallow: /4loop-logo.png
