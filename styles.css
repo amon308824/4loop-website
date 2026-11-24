@@ -126,3 +126,18 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; border-r
   .lockup { margin-top: calc(12.33vw + 27vh - 11.75em + var(--hill-overlap, 2.6em)); }
   .landscape-front { display: block; }
 }
+/* Phones (portrait, taller than 3:4): the photo scales with the height and is centred, so the
+   logo is placed in svh; the hill's treeline there lies at photo y ~880 of 2400 (36.67svh). */
+@media (max-width: 600px) and (max-aspect-ratio: 3/4) {
+  .identity { justify-content: flex-start; padding: 0 20px; }
+  .lockup { font-size: 1rem; }
+  .services { font-size: 1em; margin-top: 1.4em; }
+  /* top of the logo = treeline (36.67svh) - logo height (10.73em) + overlap */
+  .lockup { margin-top: calc(36.67svh - 10.73em + var(--hill-overlap-phone, .9em)); }
+  .landscape-front {
+    display: block;
+    background: linear-gradient(180deg, rgb(240 245 247 / .15), rgb(240 245 247 / .72) 37%, rgb(240 245 247 / .62) 57%, transparent 78%, rgb(9 27 20 / .65)), url("assets/forest-front.webp") 50% 50% / cover no-repeat;
+    -webkit-mask-position: 50% 50%;
+    mask-position: 50% 50%;
+  }
+}
