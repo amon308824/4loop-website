@@ -103,15 +103,6 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; border-r
 .legal-content h2 { margin: 32px 0 10px; font-size: 1.125rem; font-weight: 600; line-height: 1.4; }
 .legal-content p { margin: 0 0 16px; }
 .legal-footer { border-top: 1px solid #d8e0e2; padding: 16px 0 28px; }
-/* Wide screens: the photo scales with the width, so the logo is placed and sized in vw
-   and the hill on its right always covers the bottom right of the O (as on an iPhone lock screen). */
-@media (min-width: 1000px) and (orientation: landscape) {
-  .identity { justify-content: flex-start; padding: 0 24px; }
-  .services { font-size: 1.39vw; }
-  /* top of the logo = hill skyline (12.33vw + 27vh, photo y 870 of 1800) - logo height (16.33vw) + overlap */
-  .lockup { margin-top: calc(27vh - 4vw + var(--hill-overlap, 3.6vw)); }
-  .landscape-front { display: block; }
-}
 @media (max-width: 600px) {
   .landscape img { object-position: 50% 50%; }
   .landscape::after { background: linear-gradient(180deg, rgb(240 245 247 / .15), rgb(240 245 247 / .72) 37%, rgb(240 245 247 / .62) 57%, transparent 78%, rgb(9 27 20 / .65)); }
@@ -122,4 +113,16 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; border-r
   .identity { padding: 24px 24px 20px; }
   .services { margin-top: 12px; }
   .landing-footer { padding-bottom: 10px; }
+}
+/* From 601 px wide (the desktop photo), the photo scales with the width while it is wider than 3:4,
+   so the logo is placed relative to the photo: the hill on its right always covers the bottom right
+   of the O (as on an iPhone lock screen), at every window size, without a jump. */
+@media (min-width: 601px) and (min-aspect-ratio: 3/4) {
+  .identity { justify-content: flex-start; padding: 0 24px; }
+  .lockup { font-size: max(.875rem, 1.39vw); }
+  .services { font-size: 1em; margin-top: 1.6em; }
+  /* top of the logo = hill skyline (12.33vw + 27vh: photo y 870 of 1800, object-position 27%)
+     - logo height (11.75em, the logo is as wide as the tagline) + overlap */
+  .lockup { margin-top: calc(12.33vw + 27vh - 11.75em + var(--hill-overlap, 2.6em)); }
+  .landscape-front { display: block; }
 }
