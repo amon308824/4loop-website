@@ -31,7 +31,7 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; border-r
 }
 .landscape::after {
   content: "";
-  background: linear-gradient(180deg, rgb(240 245 247 / .3) 0%, rgb(240 245 247 / .68) 50%, rgb(240 245 247 / .32) 69%, transparent 83%, rgb(9 27 20 / .55) 100%);
+  background: linear-gradient(180deg, rgb(240 245 247 / .3) 0%, rgb(240 245 247 / .68) 50%, rgb(240 245 247 / .2) 66%, transparent 78%, rgb(9 27 20 / .25) 100%);
 }
 .identity {
   flex: 1;
@@ -51,7 +51,7 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; border-r
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background: linear-gradient(180deg, rgb(240 245 247 / .3) 0%, rgb(240 245 247 / .68) 50%, rgb(240 245 247 / .32) 69%, transparent 83%, rgb(9 27 20 / .55) 100%), url("assets/forest-front.png") 50% 27% / cover no-repeat;
+  background: linear-gradient(180deg, rgb(240 245 247 / .3) 0%, rgb(240 245 247 / .68) 50%, rgb(240 245 247 / .2) 66%, transparent 78%, rgb(9 27 20 / .25) 100%), url("assets/forest-front.png") 50% 27% / cover no-repeat;
   -webkit-mask-image: url("assets/forest-front.png");
   -webkit-mask-size: cover;
   -webkit-mask-position: 50% 27%;
@@ -129,7 +129,7 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; border-r
   .services { font-size: 1em; margin-top: 1.6em; }
   /* top of the logo = hill skyline (12.33vw + 27vh: photo y 870 of 1800, object-position 27%)
      - logo height (11.75em, the logo is as wide as the tagline) + overlap */
-  .lockup { margin-top: calc(12.33vw + 27vh - 11.75em + var(--hill-overlap, 2.6em)); }
+  .lockup { margin-top: calc(12.33vw + 27vh - 11.75em + var(--hill-overlap, 3.4em)); }
   .landscape-front { display: block; }
 }
 /* Phones (portrait, taller than 3:4): the photo scales with the height and is centred, so the
@@ -139,7 +139,7 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; border-r
   .lockup { font-size: 1rem; }
   .services { font-size: 1em; margin-top: 1.4em; }
   /* top of the logo = treeline (36.67svh) - logo height (10.73em) + overlap */
-  .lockup { margin-top: calc(36.67svh - 10.73em + var(--hill-overlap-phone, .9em)); }
+  .lockup { margin-top: calc(36.67svh - 10.73em + var(--hill-overlap-phone, 2.2em)); }
   .landscape-front {
     display: block;
     background: linear-gradient(180deg, rgb(240 245 247 / .15), rgb(240 245 247 / .72) 37%, rgb(240 245 247 / .62) 57%, transparent 78%, rgb(9 27 20 / .65)), url("assets/forest-front.png") 50% 50% / cover no-repeat;
